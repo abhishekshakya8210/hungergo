@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "745052584213",
+    "project_id": "hungergo-4f4de",
+    "storage_bucket": "hungergo-4f4de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745052584213:android:4eff9e5868961425fa111c",
+        "android_client_info": {
+          "package_name": "com.example.mind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKMObUXNDPa9Hp6mcGt65BIKTs163UiRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
