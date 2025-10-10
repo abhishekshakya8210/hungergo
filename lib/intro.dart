@@ -3,8 +3,8 @@ import 'package:mind/largeapp.dart';
 import 'package:mind/pages/home.dart';
 
 class Intropage extends StatelessWidget {
-  final String id; // ✅ make final for immutability
-  Intropage({super.key, required this.id});
+ // ✅ make final for immutability
+  Intropage({super.key, });
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class Intropage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePag(id: id),
+                    builder: (context) => HomePag(),
                   ),
                 );
               },

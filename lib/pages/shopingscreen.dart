@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mind/account/Login.dart';
 
 class ShppingScreen extends StatelessWidget {
-  String id;
+
    ShppingScreen({super.key,
-  required this.id,
+  
   });
 
 
@@ -79,7 +79,7 @@ class ShppingScreen extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(context, 
-                  MaterialPageRoute(builder: (context)=>Login(id: id)));
+                  MaterialPageRoute(builder: (context)=>Login()));
                 },
                 child: const Text(
                   "Logout",

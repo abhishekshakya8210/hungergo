@@ -1,12 +1,29 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mind/detailpage/crudtutorial.dart.dart';
+import 'package:mind/icons/delete.dart';
 import 'package:mind/icons/update.dart';
 import 'package:mind/largeapp.dart';
 
 class CardScreen extends StatefulWidget {
-  final String id;
-  const CardScreen({super.key, required this.id});
+  
+ 
+   CardScreen({super.key, 
+  required this.namecontroller,
+    required this.productcontroller,
+    required this.productnamecontroller,
+    required this.citycontroller,
+    required this.villagecontroller,
+    required this.numbercontroller,
+   
+
+  });
+  TextEditingController namecontroller;
+   TextEditingController productcontroller;
+   TextEditingController productnamecontroller;
+   TextEditingController citycontroller;
+   TextEditingController villagecontroller;
+   TextEditingController numbercontroller;
 
   @override
   State<CardScreen> createState() => _CardScreenState();
@@ -51,7 +68,7 @@ class _CardScreenState extends State<CardScreen> {
               String city = map['CityAttribute'] ?? '';
               String village = map['VillageAttribute'] ?? '';
               String number = map['NumberAttribute'] ?? '';
-
+ 
               return Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
@@ -147,63 +164,19 @@ class _CardScreenState extends State<CardScreen> {
                                 const SizedBox(width: 10),
 
                                 //  Update Button
-                                Update(
-                                  id: doc.id,
-                                  name: name,
-                                  product: product,
-                                  productname: productName,
-                                  city: city,
-                                  village: village,
-                                  number: number,
-                                ),
-                                const SizedBox(width: 10),
+                              Update(
+                                namecontroller: widget.namecontroller,
+                                 productcontroller: widget.productcontroller, 
+                                 productnamecontroller: widget.productnamecontroller,
+                                  citycontroller: widget.citycontroller, 
+                                  villagecontroller: widget.villagecontroller,
+                                   numbercontroller: widget.numbercontroller,
+                                    id:doc.id,
+                                    ),
+                                 SizedBox(width: 10),
 
                                 //
-                                IconButton(
-                                  icon: const Icon(Icons.delete,
-                                      color: Colors.red),
-                                  onPressed: () async {
-                                    bool? confirm = await showDialog(
-                                      context: context,
-                                      builder: (context) => AlertDialog(
-                                        title: const Text("Delete Order"),
-                                        content: const Text(
-                                            "Are you sure you want to delete this order?"),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () =>
-                                                Navigator.pop(context, false),
-                                            child: const Text("Cancel"),
-                                          ),
-                                          TextButton(
-                                            onPressed: () =>
-                                                Navigator.pop(context, true),
-                                            child: const Text(
-                                              "Delete",
-                                              style:
-                                                  TextStyle(color: Colors.red),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-
-                                    if (confirm == true) {
-                                      await FirebaseFirestore.instance
-                                          .collection("Orders")
-                                          .doc(doc.id)
-                                          .delete();
-
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content: Text("Order Deleted!"),
-                                          backgroundColor: Colors.red,
-                                        ),
-                                      );
-                                    }
-                                  },
-                                ),
+                                   Delete(id: doc.id)
                               ],
                             ),
                           ],

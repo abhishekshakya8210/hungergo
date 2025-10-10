@@ -16,7 +16,7 @@ class Splashservices {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomePag(id: user.uid), 
+            builder: (context) => HomePag(), 
           ),
         );
       });
@@ -26,7 +26,7 @@ class Splashservices {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => Login(id: ""), )
+            builder: (context) => Login(), )
         );
       });
     }

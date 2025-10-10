@@ -4,9 +4,9 @@ import 'package:mind/account/Login.dart';
 import 'package:mind/intro.dart';
 
 class Singup extends StatefulWidget {
-  String id;
+  
    Singup({super.key,
-   required this.id});
+   });
 
   @override
   State<Singup> createState() => _SingupState();
@@ -195,7 +195,7 @@ class _SingupState extends State<Singup> {
                             print('signup successful ✅');
                              Singup(emailcontroller.text, passwordcontroller.text);
                                Navigator.push(context, 
-            MaterialPageRoute(builder: (context)=>Intropage(id: widget.id)));
+            MaterialPageRoute(builder: (context)=>Intropage()));
             SnackBar(
               backgroundColor: Colors.lightGreenAccent,
               content: Text('login successfully',style: TextStyle(fontSize: 
@@ -218,7 +218,7 @@ class _SingupState extends State<Singup> {
                         const Text("you have a Account "),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(id: widget.id)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
                           },
                           child: const Text(
                             "Login",

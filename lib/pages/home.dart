@@ -5,14 +5,24 @@ import 'package:mind/pages/profile.dart';
 import 'package:mind/pages/shopingscreen.dart';
 
 class HomePag extends StatefulWidget {
-  final String id;
-  HomePag({super.key, required this.id});
+   
+
+ 
+  
+ const HomePag({super.key,
+   });
 
   @override
   State<HomePag> createState() => _HomePagState();
 }
 
 class _HomePagState extends State<HomePag> {
+   final TextEditingController namecontroller = TextEditingController();
+  final TextEditingController productcontroller = TextEditingController();
+  final TextEditingController productnamecontroller = TextEditingController();
+  final TextEditingController citycontroller = TextEditingController();
+  final TextEditingController villagecontroller = TextEditingController();
+  final TextEditingController numbercontroller = TextEditingController();
   int _currentIndex = 0;
 
   late List<Widget> _pages; 
@@ -22,9 +32,14 @@ class _HomePagState extends State<HomePag> {
     super.initState();
     _pages = [
       HomeScreen(),
-      CardScreen(id: widget.id), 
+      CardScreen(namecontroller:namecontroller,
+       productcontroller: productcontroller,
+        productnamecontroller: productnamecontroller,
+         citycontroller: citycontroller,
+          villagecontroller: villagecontroller,
+           numbercontroller: numbercontroller),
       ProfileScreen(),
-      ShppingScreen(id: widget.id)
+      ShppingScreen()
     ];
   }
 

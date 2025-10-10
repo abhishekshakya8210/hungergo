@@ -3,48 +3,40 @@ import 'package:mind/detailpage/crudtutorial.dart.dart';
 import 'package:mind/largeapp.dart';
 
 class Update extends StatefulWidget {
-  final String id;
+  
 
-  final String name;
-  final String product;
-  final String productname;
-  final String city;
-  final String village;
-  final String number;
-
-  const Update({
+   Update({
     super.key,
+    
+    required this.namecontroller,
+    required this.productcontroller,
+    required this.productnamecontroller,
+    required this.citycontroller,
+    required this.villagecontroller,
+    required this.numbercontroller,
     required this.id,
-    required this.name,
-    required this.product,
-    required this.productname,
-    required this.city,
-    required this.village,
-    required this.number,
+
   });
+     TextEditingController namecontroller;
+   TextEditingController productcontroller;
+   TextEditingController productnamecontroller;
+   TextEditingController citycontroller;
+   TextEditingController villagecontroller;
+   TextEditingController numbercontroller;
+   String id;
+   
+     
 
   @override
   State<Update> createState() => _UpdateState();
 }
 
 class _UpdateState extends State<Update> {
-  late TextEditingController namecontroller;
-  late TextEditingController productcontroller;
-  late TextEditingController productnamecontroller;
-  late TextEditingController citycontroller;
-  late TextEditingController villagecontroller;
-  late TextEditingController numbercontroller;
+ 
 
   @override
-  void initState() {
-    super.initState();
-    namecontroller = TextEditingController(text: widget.name);
-    productcontroller = TextEditingController(text: widget.product);
-    productnamecontroller = TextEditingController(text: widget.productname);
-    citycontroller = TextEditingController(text: widget.city);
-    villagecontroller = TextEditingController(text: widget.village);
-    numbercontroller = TextEditingController(text: widget.number);
-  }
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +64,7 @@ class _UpdateState extends State<Update> {
 
                     // Full Name
                     TextFormField(
-                      controller: namecontroller,
+                      controller: widget.namecontroller,
                       decoration: InputDecoration(
                         hintText: 'Full Name',
                         border: OutlineInputBorder(
@@ -88,7 +80,7 @@ class _UpdateState extends State<Update> {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            controller: productcontroller,
+                            controller: widget.productcontroller,
                             decoration: InputDecoration(
                               hintText: 'Total Product',
                               border: OutlineInputBorder(
@@ -101,7 +93,7 @@ class _UpdateState extends State<Update> {
                         SizedBox(width: width * 0.03),
                         Expanded(
                           child: TextFormField(
-                            controller: productnamecontroller,
+                            controller: widget.productnamecontroller,
                             decoration: InputDecoration(
                               hintText: 'Product Name',
                               border: OutlineInputBorder(
@@ -120,7 +112,7 @@ class _UpdateState extends State<Update> {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            controller: citycontroller,
+                            controller: widget.citycontroller,
                             decoration: InputDecoration(
                               hintText: 'City Name',
                               border: OutlineInputBorder(
@@ -132,7 +124,7 @@ class _UpdateState extends State<Update> {
                         SizedBox(width: width * 0.03),
                         Expanded(
                           child: TextFormField(
-                            controller: villagecontroller,
+                            controller: widget.villagecontroller,
                             decoration: InputDecoration(
                               hintText: 'Village/Town Name',
                               border: OutlineInputBorder(
@@ -148,7 +140,7 @@ class _UpdateState extends State<Update> {
 
                     // Mobile Number
                     TextFormField(
-                      controller: numbercontroller,
+                      controller: widget.numbercontroller,
                       decoration: InputDecoration(
                         hintText: 'Enter your mobile no:',
                         border: OutlineInputBorder(
@@ -167,12 +159,12 @@ class _UpdateState extends State<Update> {
                         onPressed: () async {
                           await Crudtutorial().Update(
                             widget.id,
-                            namecontroller.text,
-                            productcontroller.text,
-                            productnamecontroller.text,
-                            citycontroller.text,
-                            villagecontroller.text,
-                            numbercontroller.text,
+                            widget.namecontroller.text,
+                            widget.productcontroller.text,
+                            widget.productnamecontroller.text,
+                            widget.citycontroller.text,
+                            widget.villagecontroller.text,
+                            widget.numbercontroller.text,
                           );
 
                           Navigator.pop(context); // close dialog

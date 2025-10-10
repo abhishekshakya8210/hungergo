@@ -5,10 +5,10 @@ import 'package:mind/account/singup.dart';
 import 'package:mind/intro.dart';
 
 class Login extends StatefulWidget {
-  String id;
+  
 
    Login({super.key,
-  required this.id});
+  });
 
   @override
   State<Login> createState() => _LoginState();
@@ -196,7 +196,7 @@ class _LoginState extends State<Login> {
                           if (formkey.currentState!.validate()) {
                             login(emailcontroller.text, passwordcontroller.text);
                                Navigator.push(context, 
-            MaterialPageRoute(builder: (context)=>Intropage(id: widget.id)));
+            MaterialPageRoute(builder: (context)=>Intropage()));
             SnackBar(
               backgroundColor: Colors.lightGreenAccent,
               content: Text('login successfully',style: TextStyle(fontSize: 
@@ -219,7 +219,7 @@ class _LoginState extends State<Login> {
                         const Text("Don't have an account? "),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Singup(id: widget.id)));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Singup()));
                           },
                           child: const Text(
                             "Sign Up",
