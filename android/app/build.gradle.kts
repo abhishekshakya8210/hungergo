@@ -29,7 +29,7 @@ android {
         applicationId = "com.example.mind"
 
         // ✅ Firebase_core requires at least 23
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
 
         // ✅ Use flutter defaults for rest
         targetSdk = flutter.targetSdkVersion
